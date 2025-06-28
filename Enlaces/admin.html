@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Administrador</title>
+  <link rel="stylesheet" href="style_admin.css">
+</head>
+<body>
+  
+  <div class="header">
+    <h1>Panel de Administrador</h1>
+  </div>
+
+  
+  <button class="logout-btn" onclick="logout()">
+    🚪 Cerrar Sesión
+  </button>
+
+  
+  <div class="menu-container">
+    <div class="menu-grid">
+      
+      <div class="menu-card" onclick="mostrarFormulario('formUsuario')">
+        <span class="icon">👤</span>
+        <h3>Registrar Usuario</h3>
+        <p>Crear nuevos usuarios en el sistema con acceso básico</p>
+      </div>
+
+      
+      <div class="menu-card" onclick="mostrarFormulario('formConductor')">
+        <span class="icon">🚗</span>
+        <h3>Registrar Conductor</h3>
+        <p>Registrar conductores con sus licencias y datos profesionales</p>
+      </div>
+
+      
+      <div class="menu-card" onclick="mostrarFormulario('formBus')">
+        <span class="icon">🚌</span>
+        <h3>Registrar Bus</h3>
+        <p>Añadir nuevos buses con sus especificaciones y rutas asignadas</p>
+      </div>
+
+      
+      <div class="menu-card" onclick="mostrarFormulario('formRuta')">
+        <span class="icon">🗺️</span>
+        <h3>Registrar Ruta</h3>
+        <p>Crear y configurar nuevas rutas de transporte público</p>
+      </div>
+
+      
+      <div class="menu-card" onclick="mostrarFormulario('verDatos')">
+        <span class="icon">📊</span>
+        <h3>Mostrar Datos</h3>
+        <p>Visualizar todos los registros almacenados en el sistema</p>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="formulario" id="formUsuario">
+    <div class="form-content">
+      <button class="close-btn" onclick="cerrarFormulario()">&times;</button>
+      <h1>Registrar Usuario</h1>
+      <form onsubmit="return registrarUsuario(event)">
+        <div class="username">
+          <input type="text" id="nombreUsuario" required>
+          <label>Nombre completo</label>
+          <span></span>
+        </div>
+        <div class="username">
+          <input type="number" id="documentoUsuario" required>
+          <label>Número de documento</label>
+          <span></span>
+        </div>
+        <div class="username">
+          <input type="email" id="emailUsuario" required>
+          <label>Correo electrónico</label>
+          <span></span>
+        </div>
+        <div class="username">
+          <input type="tel" required pattern="[0-9]{10}" maxlength="10" minlength="10" title="Debe ingresar exactamente 10 números" id="telefonoUsuario">
+          <label>Teléfono</label>
+          <span></span>
+        </div>
+        <div class="username">
+          <input type="text" id="usernameUsuario" required>
+          <label>Nombre de usuario</label>
+          <span></span>
+        </div>
+        <div class="username">
+          <input type="password" id="passwordUsuario" required>
+          <label>Contraseña</label>
+          <span></span>
+        </div>
+        <input type="submit" value="Registrar Usuario">
+      </form>
+    </div>
+  </div>
+
+  
+  <div class="formulario" id="formConductor">
+    <div class="form-content">
+      <button class="close-btn" onclick="cerrarFormulario()">&times;</button>
+      <h1>Registrar Conductor</h1>
+      <form onsubmit="return registrarConductor(event)">
+        <div class="username">
+          <input type="text" id="nombreConductor" required>
+          <label>Nombre completo</label>
+          <span></span>
+        </div>
+        <div class="username">
+          <input type="number" id="documentoConductor" required>
+          <label>Número de documento</label>
+          <span></span>
+        </div>
+        <div class="username">
+          <input type="email" id="emailConductor" required>
+          <label>Correo electrónico</label>
+          <span></span>
+        </div>
+        <div class="username">
+          <input type="tel" id="telefonoConductor" required>
+          <label>Número de teléfono</label>
+          <span></span>
+        </div>
+        <div class="username">
+          <input type="text" id="licenciaConductor" required>
+          <label>Categoría de licencia</label>
+          <span></span>
+        </div>
+        <div class="username">
+          <input type="text" id="usernameConductor" required>
+          <label>Nombre de usuario</label>
+          <span></span>
+        </div>
+        <div class="username">
+          <input type="password" id="passwordConductor" required>
+          <label>Contraseña</label>
+          <span></span>
+        </div>
+        <input type="submit" value="Registrar Conductor">
+      </form>
+    </div>
+  </div>
+
+  
+  <div class="formulario" id="formBus">
+    <div class="form-content">
+      <button class="close-btn" onclick="cerrarFormulario()">&times;</button>
+      <h1>Registrar Bus</h1>
+      <form onsubmit="return registrarBus(event)">
+        <div class="username">
+          <input type="text" id="placaBus" oninput="this.value = this.value.toUpperCase()" required>
+          <label>Placa del vehículo</label>
+          <span></span>
+        </div>
+        <div class="username">
+          <input type="text" id="modeloBus" required>
+          <label>Modelo del bus</label>
+          <span></span>
+        </div>
+        <div class="username">
+          <input type="number" id="capacidadBus" required>
+          <label>Capacidad de pasajeros</label>
+          <span></span>
+        </div>
+        <div class="username">
+          <input type="text" id="empresaBus" required>
+          <label>Empresa de transporte</label>
+          <span></span>
+        </div>
+        <div class="username">
+          <input type="text" id="rutaBus" required>
+          <label>Ruta asignada</label>
+          <span></span>
+        </div>
+        <input type="submit" value="Registrar Bus">
+      </form>
+    </div>
+  </div>
+
+  <!-- Formulario Ruta -->
+  <div class="formulario" id="formRuta">
+    <div class="form-content">
+      <button class="close-btn" onclick="cerrarFormulario()">&times;</button>
+      <h1>Registrar Ruta</h1>
+      <form onsubmit="return registrarRuta(event)">
+        <div class="username">
+          <input type="text" id="nombreRuta" required>
+          <label>Nombre de la ruta</label>
+          <span></span>
+        </div>
+        <div class="username">
+          <input type="text" id="origenRuta" required>
+          <label>Punto de origen</label>
+          <span></span>
+        </div>
+        <div class="username">
+          <input type="text" id="destinoRuta" required>
+          <label>Punto de destino</label>
+          <span></span>
+        </div>
+        <div class="username">
+          <input type="time" id="horarioInicio" required>
+          <label>Horario de inicio</label>
+          <span></span>
+        </div>
+        <div class="username">
+          <input type="time" id="horarioFin" required>
+          <label>Horario de fin</label>
+          <span></span>
+        </div>
+        <div class="username">
+          <input type="number" id="precioRuta" step="0.01" required>
+          <label>Precio del pasaje</label>
+          <span></span>
+        </div>
+        <input type="submit" value="Registrar Ruta">
+      </form>
+    </div>
+  </div>
+
+  <!-- Ver Datos -->
+  <div class="formulario" id="verDatos">
+    <div class="form-content">
+      <button class="close-btn" onclick="cerrarFormulario()">&times;</button>
+      <h1>Datos Registrados</h1>
+      <div class="data-container" id="dataContainer">
+        <div class="data-section">
+          <h3>👤 Usuarios Registrados</h3>
+          <div id="usuariosData"></div>
+        </div>
+        <div class="data-section">
+          <h3>🚗 Conductores Registrados</h3>
+          <div id="conductoresData"></div>
+        </div>
+        <div class="data-section">
+          <h3>🚌 Buses Registrados</h3>
+          <div id="busesData"></div>
+        </div>
+        <div class="data-section">
+          <h3>🗺️ Rutas Registradas</h3>
+          <div id="rutasData"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  </body>
+</html>

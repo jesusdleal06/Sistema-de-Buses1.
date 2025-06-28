@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio de sesión</title>
+  <link rel="stylesheet" href="/Proyecto_BD/style2.css">
+</head>
+<body>
+
+  <div class="formulario">
+    <h1>Inicio de sesión</h1>
+
+    <div class="selector-rol">
+      <label for="rol">Deseas ingresar como:</label>
+      <select id="rol" name="rol">
+        <option value="usuario">Usuario</option>
+        <option value="admin">Administrador</option>
+        <option value="conductor">Conductor</option>
+      </select>
+    </div>
+
+    <form onsubmit="return login()">
+      <div class="username">
+        <input type="text" id="username" required>
+        <label>Nombre de usuario</label>
+        <span></span>
+      </div>
+
+      <div class="username">
+        <input type="password" id="password" required>
+        <label>Contraseña</label>
+        <span></span>
+      </div>
+
+      <a href="recordar.html">¿Olvidó su contraseña?<br></a>
+
+      <input type="submit" value="Iniciar">
+
+      <div class="registrarse">
+        Quiero hacer el <a href="registro.html">registro a usuario</a>,<br>
+        Registro a <a href="registro_conductor.html">Conductores</a>
+      </div>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
